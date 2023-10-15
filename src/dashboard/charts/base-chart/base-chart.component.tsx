@@ -1,10 +1,11 @@
 import { ReactNode } from "react";
 
 import numeral from "numeral";
+
 import { VictoryAxis, VictoryChart } from "victory";
 
-import { useChartTheme } from "../useChatTheme";
-import { ChartTheme } from "../../types";
+import { useChartTheme } from "../../useChartTheme";
+import { ChartTheme } from "../../../types";
 
 interface Props {
   children: ReactNode;
