@@ -15,7 +15,14 @@ import { Button, DialogTitle, Grid, LoadMaskFallback } from "../components";
 
 import { apiMetadata, targetDatasets } from "../constants";
 
-import { AffordableHousingDelivery } from "./custom-charts";
+import {
+  AffordableHousingDelivery,
+  DeliverableSupplySummary,
+  HousingApprovals,
+  HousingDelivery,
+  ProgressIndicators,
+  ProgressionVsPlanningSchedule,
+} from "../dashboard/custom-charts";
 
 import {
   chartDataSelector,
@@ -33,7 +40,15 @@ import { exportToCsv } from "./utils/utils";
 
 import { useAppDispatch, useAppSelector } from "../hooks";
 
-import { AffordableHousingData, ExportData } from "../mock/fixtures";
+import {
+  AffordableHousingData,
+  DeliverableSupplySummaryData,
+  ExportData,
+  HousingApprovalsData,
+  ProgressionOfUnitsData,
+  TenureTypeHousingData,
+  TotalHousingDeliveryData,
+} from "../mock/fixtures";
 
 import {
   ChartMetadata,
@@ -66,8 +81,24 @@ export const Dashboard = ({ sourceId }: { sourceId: string }) => {
   const dispatch = useAppDispatch();
 
   /** all data, including 'name', 'version', etc */
+  const approvalsGranted: HousingApprovalsData = useAppSelector(
+    chartDataSelector(sourceId, "approvalsGranted")
+  );
+
+  const progressionVsPlanning: ProgressionOfUnitsData = useAppSelector(
+    chartDataSelector(sourceId, "progressionVsPlanning")
+  );
+  const tenureHousingDelivery: TenureTypeHousingData = useAppSelector(
+    chartDataSelector(sourceId, "tenureHousingDelivery")
+  );
+  const totalHousingDelivery: TotalHousingDeliveryData = useAppSelector(
+    chartDataSelector(sourceId, "totalHousingDelivery")
+  );
   const affordableHousingDelivery: AffordableHousingData = useAppSelector(
     chartDataSelector(sourceId, "affordableHousingDelivery")
+  );
+  const deliverableSupplySummary: DeliverableSupplySummaryData = useAppSelector(
+    chartDataSelector(sourceId, "deliverableSupplySummary")
   );
 
   const user = useAppSelector(userSelector);
@@ -86,7 +117,13 @@ export const Dashboard = ({ sourceId }: { sourceId: string }) => {
   /** app was created for desktops only */
   const isDesktopSize = useMediaQuery("(min-width:1500px)");
 
-  const dataIsLoaded = !!affordableHousingDelivery;
+  const dataIsLoaded =
+    !!approvalsGranted &&
+    !!progressionVsPlanning &&
+    !!tenureHousingDelivery &&
+    !!totalHousingDelivery &&
+    !!affordableHousingDelivery &&
+    !!deliverableSupplySummary;
 
   const { targets, settings } = orbState ?? {},
     orbStateIsLoaded = !!targets && !!settings;
@@ -238,40 +275,40 @@ export const Dashboard = ({ sourceId }: { sourceId: string }) => {
 
       <Grid container item className={content} direction="column">
         <Grid container item wrap="nowrap">
-          {/* <ProgressIndicators
+          <ProgressIndicators
             targets={targets}
             tenureData={tenureHousingDelivery}
             totalData={totalHousingDelivery}
-          /> */}
+          />
         </Grid>
 
         {/* parent component that wraps both Total Housing and
          * Tenure Housing charts
          */}
-        {/* <HousingDelivery
+        <HousingDelivery
           settings={settings}
           targets={targets}
           tenureHousingDeliveryData={tenureHousingDelivery}
           totalHousingDeliveryData={totalHousingDelivery}
           updateOrbState={updateOrbState}
-        /> */}
+        />
 
         <Grid container item direction="column">
           <Grid container item wrap="nowrap">
-            {/* <DeliverableSupplySummary data={deliverableSupplySummary} />
+            <DeliverableSupplySummary data={deliverableSupplySummary} />
             <HousingApprovals
               data={approvalsGranted}
               settings={settings}
               updateOrbState={updateOrbState}
-            /> */}
+            />
           </Grid>
 
           <Grid container item wrap="nowrap">
-            {/* <ProgressionVsPlanningSchedule
+            <ProgressionVsPlanningSchedule
               data={progressionVsPlanning}
               settings={settings}
               updateOrbState={updateOrbState}
-            /> */}
+            />
 
             <AffordableHousingDelivery
               data={affordableHousingDelivery}
