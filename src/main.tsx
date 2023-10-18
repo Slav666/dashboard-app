@@ -9,18 +9,16 @@ import { worker } from "./mock/browser.ts";
 import store from "./store";
 import theme from "./themes/index.ts";
 
-// import "./index.css";
-
 worker.start();
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <StrictMode>
-    <CssBaseline>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
-      </Provider>
-    </CssBaseline>
-  </StrictMode>
+  // <StrictMode>
+  <CssBaseline>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </Provider>
+  </CssBaseline>
+  // </StrictMode>
 );
