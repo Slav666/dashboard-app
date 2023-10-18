@@ -1,13 +1,13 @@
 import { VictoryThemeDefinition } from "victory";
 
-// import {
-//   AffordableHousingData,
-//   DeliverableSupplySummaryData,
-//   HousingApprovalsData,
-//   ProgressionOfUnitsData,
-//   TenureTypeHousingData,
-//   TotalHousingDeliveryData,
-// } from "./mocks/fixtures";
+import {
+  AffordableHousingData,
+  DeliverableSupplySummaryData,
+  HousingApprovalsData,
+  ProgressionOfUnitsData,
+  TenureTypeHousingData,
+  TotalHousingDeliveryData,
+} from "./mock/fixtures";
 
 /** Re-usable type declarations */
 
@@ -72,12 +72,12 @@ export type UpdateOrbStateArgs = {
 
 /** all individual datasets satisfy ChartData type */
 
-// export type ChartData = AffordableHousingData &
-//   HousingApprovalsData &
-//   ProgressionOfUnitsData &
-//   TenureTypeHousingData &
-//   TotalHousingDeliveryData &
-//   DeliverableSupplySummaryData;
+export type ChartData = AffordableHousingData &
+  HousingApprovalsData &
+  ProgressionOfUnitsData &
+  TenureTypeHousingData &
+  TotalHousingDeliveryData &
+  DeliverableSupplySummaryData;
 
 export type ChartMetadata = {
   sourceId: string;
