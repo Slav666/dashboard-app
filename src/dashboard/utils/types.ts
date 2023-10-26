@@ -1,7 +1,5 @@
 import {
   AffordableHousingData,
-  // HousingApprovalsData,
-  // ProgressionOfUnitsData,
   TenureTypeHousingData,
   TotalHousingDeliveryData,
 } from "../../mock/fixtures";
