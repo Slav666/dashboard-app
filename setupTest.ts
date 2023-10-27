@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 
-import { vi } from "vitest";
+import { beforeAll, afterAll, vi } from "vitest";
 
 const { ResizeObserver } = window;
 

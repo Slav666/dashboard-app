@@ -1,6 +1,6 @@
 export type HousingApprovalsData = {
   name: "Monthly" | "Cumulative";
-  data: { [year: string]: number | string }[];
+  data: { [year: string]: number | string | null }[];
 }[];
 
 const data: HousingApprovalsData = [
