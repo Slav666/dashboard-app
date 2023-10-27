@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 
-import { vi } from "vitest";
+import { beforeAll, afterAll, vi } from "vitest";
 
 const { ResizeObserver } = window;
 
@@ -20,6 +20,8 @@ afterAll(() => {
   window.ResizeObserver = ResizeObserver;
   vi.restoreAllMocks();
 });
+
+// TODO: keep these? Are they needed?
 // beforeAll(() => server.listen({ onUnhandledRequest: 'error' }));
 // afterAll(() => server.close());
 // afterEach(() => server.resetHandlers());

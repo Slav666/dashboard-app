@@ -87,7 +87,7 @@ export const CustomLegend = ({
         })}
       </Grid>
 
-      {!!targetData ? (
+      {targetData ? (
         <Grid
           container
           item

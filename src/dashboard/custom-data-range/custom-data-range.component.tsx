@@ -47,7 +47,7 @@ const CustomDateRange = ({
           ${year}-${year + 1}
         `;
 
-        return !!startYear ? (
+        return startYear ? (
           <MenuItem key={year} value={year}>
             {optionLabel}
           </MenuItem>

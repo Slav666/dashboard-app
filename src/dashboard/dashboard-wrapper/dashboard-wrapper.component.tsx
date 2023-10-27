@@ -12,7 +12,7 @@ const DashboardWrapper = () => {
   const searchParams = new URLSearchParams(location.search);
   const sourceId = searchParams.get(SOURCE_ID);
 
-  if (!sourceId) return <LoadMaskFallback />;
+  if (!sourceId) return <LoadMaskFallback children={undefined} />;
 
   return <Dashboard sourceId={sourceId} />;
 };

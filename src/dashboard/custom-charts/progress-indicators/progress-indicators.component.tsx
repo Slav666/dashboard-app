@@ -51,7 +51,7 @@ const ProgressIndicators = ({
     () =>
       getPastYears().reduce((acc, year) => {
         const match = totalData.find(({ startYear }) => startYear === year);
-        return !!match ? (acc += match["Total Gross"]) : acc;
+        return match ? (acc += match["Total Gross"]) : acc;
       }, 0),
     [totalData]
   );
