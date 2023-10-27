@@ -6,6 +6,7 @@ import { BaseChart, ChartWrapper } from "../../../dashboard/charts";
 
 import { getStackTotals } from "../../../dashboard/custom-charts/deliverable-supply-summary/utils/utils";
 
+// import { getStackTotals } from "~/dashboard/custom-charts/deliverable-supply-summary/utils/utils";
 import { CustomLegend } from "../../../dashboard/custom-legend/custom-legend.component";
 import { useChartTheme } from "../../../dashboard/useChartTheme";
 import { DeliverableSupplySummaryData } from "../../../mock/fixtures/deliverable_supply_summary";
