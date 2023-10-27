@@ -14,6 +14,7 @@ export const affordableHousingTransformer = ({
 }: Args): AffordableHousingData =>
   timeline.reduce((acc: AffordableHousingData, year: number) => {
     const match = apiData.find(({ startYear }) => startYear === year)!,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
       targetValue = targets?.[match.startYear]!;
 
     const percentage = Math.round(

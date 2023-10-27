@@ -93,7 +93,7 @@ const ProgressionVsPlanningSchedule = ({
             selectedType,
           });
 
-          return !!filteredData ? (
+          return filteredData ? (
             <>
               <Grid
                 container

@@ -88,7 +88,7 @@ const HousingApprovals = ({ data, settings, updateOrbState }: Props) => {
     xLabel = "Month",
     yLabel = "No. Housing Approvals Granted";
 
-  return !!dataByType ? (
+  return dataByType ? (
     <ChartWrapper
       classes={{ paper }}
       info="This shows the number of housing approvals granted over time"
