@@ -14,7 +14,6 @@ import { BaseChart } from "../../../../dashboard/charts";
 
 import { totalHousingTransformer } from "../../../../dashboard/custom-charts/housing-delivery/total-housing-multi-chart/total-housing-transformer/total-housing-transformer";
 
-
 import { pairedWidthCalculator } from "../../../../dashboard/custom-charts/housing-delivery/utils/utils";
 
 import { CustomLegend } from "../../../../dashboard/custom-legend/custom-legend.component";
@@ -83,7 +82,7 @@ const TotalHousingMultiChart = ({ data, targets, timeline }: Props) => {
               <VictoryGroup offset={offset}>
                 {transformedData.map((arr, i) => {
                   // TODO: new react hook here?
-                  const key = arr[i].x;
+                  const key = arr[i]?.x;
                   return (
                     <VictoryBar
                       key={key}
